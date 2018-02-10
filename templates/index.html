@@ -2,16 +2,28 @@
 <html lang="en">
 	<head>
 		<title>[page title goes here]</title>
-			
+
 		<!-- include partials/meta.html -->
 	</head>
 	<body class="home">
 		<!-- include partials/header.html -->
-		
-		{{url}}
-		
+
+		<div>
+		{{content | safe}}
+		</div>
+
+		<div>
+		{% if img %}
+		{{img | safe}}
+		{% endif %}
+		</div>
+
+		<div>
+		{{output}}
+		</div>
+
 		<header>
-			<a href-"#" class="logo"><img src"#" alt="logo" /></a>
+			<a href=#" class="logo"><img src="#" alt="logo" /></a>
 			<ul class="util">
 				<li><a href="#">texthere</a></li>
 				<li><a href="#">texthere</a></li>
@@ -32,7 +44,7 @@
 				</ul>
 			</nav>
 		</header>
-		
+
 		<main>
 			<section class="hero">
 				<h1>
@@ -40,26 +52,26 @@
 					<span class="plans-center">with</span>
 					<span class="plans-bottom">no hidden feed</span>
 				</h1>
-				
+
 				<a href="#" class="button">this text</a>
-				
+
 			</section>
-			
+
 			<section id="dataTable">
-				
+
 			</section>
-			
+
 			<section id="storeFinder">
-				
+
 			</section>
 		</main>
-		
+
 		<footer>
-			
+
 		</footer>
-		
-		
-		
+
+
+
 		<!-- include partials/footer.html -->
 		<!-- include partials/scripts.html -->
 	</body>
