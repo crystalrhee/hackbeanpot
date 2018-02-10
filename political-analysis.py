@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from bs4 import BeautifulSoup
 import indicoio
 from indicoio.custom import Collection
-from htmllaundry import sanitize
 import requests
 
 app = Flask(__name__)
@@ -10,35 +9,47 @@ app = Flask(__name__)
 indicoio.config.api_key = '35b0d68ba113813880b422207eed08d3'
 collection = Collection("pro_vs_con", domain="standard")
 
-@app.route('/abstract')
-def get_abstract():
+
+@app.route('/collect')
+def collect_from_article():
     url = request.args.get("url")
-
-    abstract_content = _find_abstract(url)
-
-    return render_template("index.html", content=abstract_content, output=abstract_content)
-
-
-
-def _find_abstract(url):
-    abstract_box = _scrape_page(url, "div", {"class":"article-con"})
-    return abstract_box
-
-
-def _scrape_page(url, name, attributes):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
-    cons = []
-    for att in soup.find_all(name, attributes):
-        p = att.find('p')
-        cons.append(p.text)
-        collection.add_data([p.text, "gun control con"])
-    return cons
 
+    _add_articles_to_collection(soup, "newblue-pro-quote-box", "pro")
+    _add_articles_to_collection(soup, "newblue-con-quote-box", "con")
+
+    return render_template("index.html", status="Articles successfully added!")
+
+
+def _add_articles_to_collection(soup, class_name, label):
+    articles = []
+    for article in soup.find_all("div", {"class": class_name}):
+        contents = article.text
+        articles.append([contents, label])
+        collection.add_data(articles)
+
+    return articles
+
+
+@app.route('/clear')
+def clear_collection():
+    collection.clear()
+    return render_template("index.html", status="Collection successfully cleared!")
+
+
+@app.route("/train")
 def train():
-   collection.train()
-   #collection.wait()
-   return collection.predict("gun control sucks")
+    collection.train()
+    collection.wait()
+    return render_template("index.html", status="Training completed successfully!")
+
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    text = request.data
+    return str(collection.predict(text))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
