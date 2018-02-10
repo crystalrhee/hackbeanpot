@@ -45,6 +45,7 @@ module.exports = function(grunt){
 							'img/**',
 							'fonts/**',
 							'css/sitewide.css',
+							'css/**',
 							'js/libs/**',
 							'js/sitewide.js',
 						],
