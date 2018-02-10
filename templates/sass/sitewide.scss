@@ -1,7 +1,7 @@
-@import "_variables.scss"; // Include all variables for the site like fonts
-@import "_mixins.scss"; // Include the CSS mixins
-@import "_reset.scss"; // Include the general HTML reset
-@import "_keyframes.scss"; // keyframe animations, only include if you'll be using keyframe animations
+@import "variables"; // Include all variables for the site like fonts
+@import "mixins"; // Include the CSS mixins
+@import "reset"; // Include the general HTML reset
+@import "keyframes"; // keyframe animations, only include if you'll be using keyframe animations
 
 /* Put all your main styles below here */
 /* When making styles, make sure to keep in mind a mobile-first mentality. All your main code here should work 100% on mobile. Your media queries should be for upscaling from a mobile size.*/
