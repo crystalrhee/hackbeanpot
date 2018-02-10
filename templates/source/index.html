@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>[page title goes here]</title>
+
+	<!-- include partials/meta.html -->
+</head>
+<body class="home">
+	<!-- include partials/header.html -->
+	<div class="loader">
+		<div>
+			<img src="img/icons/preloader.gif" />
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-5 left-wrapper">
+				<div class="event-banner-wrapper">
+					<div class="logo">
+						<h1>HackBeanPot</h1>
+					</div>
+
+					<h2>
+						Image<br>Sentiment Analysis
+						<span>Powered by Indico</span>
+					</h2>
+				</div>
+			</div>
+			<div class="col-sm-7 right-wrapper">
+				<div class="event-ticket-wrapper">
+					<div class="event-tab">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#link" aria-controls="link" role="tab" data-toggle="tab">Link</a></li>
+							<li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab" data-toggle="tab">Analysis</a></li>
+							<li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active" id="link">
+								<form action="/action_page.php">
+									Article Link:<br>
+									<input type="text" name="link">
+									<input class="btn disabled" type="submit">
+								</form>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="analysis">
+								<!-- add political leaning -->
+								<!-- add pie chart -->
+								<!-- add results -->
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="about">
+								<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+								<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+								<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="cart">
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="text-right">
+									<a href="https://github.com/crystalrhee/hackbeanpot" class="btn">Code</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal right fade" id="ticket-details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+      <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Share your contact Details</h4>
+    </div>-->
+    <div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    		<img src="img/icons/cancel.png">
+    	</button>
+    	<h4 class="modal-title">Your Tickets</h4>
+    </div>
+    <div class="modal-body">
+
+    	<div class="cart-information">
+    		<div class="ticket-type"></div>
+    		<ul>
+    			<li>Tickets: <span class="ticket-count"></span></li>
+    			<li>Price: <span class="ticket-amount"></span></li>
+    			<hr>
+    			<li>Total: <span class="total-amount"></span></li>
+    		</ul>
+    	</div>
+
+    	<div class="contactForm">	
+    		<h3>Share your contact Details</h3>
+    		<form>
+    			<div class="form-group">
+    				<input type="text" class="form-control" placeholder="Enter your name">
+    			</div>
+
+    			<div class="form-group">
+    				<input type="text" class="form-control" placeholder="Enter your Email ID">
+    			</div>
+
+    			<div class="form-group">
+    				<input type="text" class="form-control" placeholder="Enter your Mobile No.">
+    			</div>
+
+    			<a type="submit" class="btn">Proceed to Payment</a>
+    		</form>
+    	</div>
+
+
+
+    </div>
+</div>
+</div>
+</div>
+
+<!-- include partials/footer.html -->
+<!-- include partials/scripts.html -->
+</body>
+</html>
