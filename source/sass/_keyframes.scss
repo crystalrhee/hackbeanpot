@@ -1,0 +1,10 @@
+@include keyframes(bump_left) {
+	50% {
+		left: 0;
+	}
+}
+@include keyframes(bump_right) {
+	50% {
+		right: 0;
+	}
+}
