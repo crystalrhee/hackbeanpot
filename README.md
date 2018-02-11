@@ -18,4 +18,11 @@ We approached this hackathon project by considering how the indico.io API could 
 * [Sarah Zhang](https://github.com/sazhang)
 
 ## Starting a local server:
-cd into the desired folder and run `python app.py`
+1. Clone the repo  
+2. Add a `config.py` file to the project directory and set a secret key for CSRF as follows:
+```
+app.config["SECRET_KEY"] = <your key>
+```
+3. Get an indico.io API key and add it to your home directory in an .indicorc file as explained in the [indico.io docs](https://indico.io/docs#config_file).  
+4. cd into the project repo and run `python app.py`  
+5. In the browser, open http://localhost:5000/predict  
