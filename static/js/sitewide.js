@@ -26,10 +26,17 @@ $(function() {
 	});
 });
 
-
-// var isDisabled = $(element).is(':disabled');
-//     if (isDisabled) {
-//         $(element).prop('disabled', false);
-//     } else {
-//         // Handle input is not disabled
-//     }
+$(function() {
+	$('#labels ul :nth-child(1)').hover(function() {
+		$('#bar-1').toggleClass("filter");
+	});
+	$('#labels ul :nth-child(2)').hover(function() {
+		$('#bar-2').toggleClass("filter");
+	});
+	$('#bar-1').hover(function() {
+		$(this).toggleClass("filter");
+	});
+	$('#bar-2').hover(function() {
+		$(this).toggleClass("filter");
+	});
+});
