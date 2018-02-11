@@ -63,6 +63,9 @@
                                 {% endif %}
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="analysis">
+                                {% if question %}
+                                {{question}}
+                                {% endif %}
                                 {% if prediction %}
                                 <ul>
                                     <li id="resultPro">{{prediction["pro"]}}</li>

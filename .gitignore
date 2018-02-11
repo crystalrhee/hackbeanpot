@@ -11,3 +11,5 @@ lib
 include
 lib
 include
+config.py
+*.pyc
