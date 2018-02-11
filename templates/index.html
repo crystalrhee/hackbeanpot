@@ -52,6 +52,7 @@
                                 {% if wordform %}
                                 <form action="" method="post">
                                     {{wordform.csrf}}
+                                    {{wordform.choices}}
                                     <input type="text" id="linkInput" class="text-input" name="link">
                                     <div class="text-input">
                                         {{wordform.name.label}} {{wordform.name}}
