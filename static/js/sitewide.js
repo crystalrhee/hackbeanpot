@@ -15,10 +15,11 @@ $(function() {
 
 $(function() {
 	$('#navAnalysis').click(function() {
+		var isDisabled = $('#navAnalysis').is(':disabled');
+		console.log(isDisabled);
+
 		pro = $('#resultPro')[0].innerHTML;
 		con = $('#resultCon')[0].innerHTML;
-		console.log(pro);
-		console.log(con);
 		proPercent = (pro * 100).toFixed(2) + '%';
 		conPercent = (con * 100).toFixed(2) + '%';
 		$('#bar-1').css('width', proPercent);
@@ -27,3 +28,11 @@ $(function() {
 		$('#bar-2').html(conPercent);
 	});
 });
+
+
+// var isDisabled = $(element).is(':disabled');
+//     if (isDisabled) {
+//         $(element).prop('disabled', false);
+//     } else {
+//         // Handle input is not disabled
+//     }
