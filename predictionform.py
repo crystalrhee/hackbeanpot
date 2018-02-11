@@ -13,4 +13,5 @@ class PredictionForm(Form):
     choices = SelectField('Model', choices=[("gun_control", "Gun Control"),
                                             ("death_penalty", "Death Penalty"),
                                             ("climate_change", "Climate Change"),
-                                            ("illegal_immigration", "Illegal Immigration")])
+                                            ("illegal_immigration", "Illegal Immigration"),
+                                            ("abortion_right", "Abortion")])

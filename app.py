@@ -17,11 +17,13 @@ gc_collection = Collection("gun_control", domain="standard")
 dp_collection = Collection("death_penalty", domain="standard")
 cc_collection = Collection("climate_change", domain="standard")
 ii_collection = Collection("illegal_immigration", domain="standard")
+ar_collection = Collection("abortion_right", domain="standard")
 questions = {
     "gun_control": "Should More Gun Control Laws Be Enacted?",
     "death_penalty": "Should the Death Penalty Be Allowed?",
     "climate_change": "Is Human Activity Primarily Responsible for Global Climate Change?",
-    "illegal_immigration": "Should the Government Allow Immigrants Who Are Here Illegally to Become US Citizens?"
+    "illegal_immigration": "Should the Government Allow Immigrants Who Are Here Illegally to Become US Citizens?",
+    "abortion_right": "Should Abortion Be Legal?"
 }
 
 
@@ -64,6 +66,8 @@ def _add_articles_to_collection(soup, class_name, label, model_name):
         cc_collection.add_data(articles)
     elif model_name == "illegal_immigration":
         ii_collection.add_data(articles)
+    elif model_name == "abortion_right":
+        ar_collection.add_data(articles)
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -82,6 +86,8 @@ def clear_collection():
         cc_collection.clear()
     elif model_name == "illegal_immigration":
         ii_collection.clear()
+    elif model_name == "abortion_right":
+        ar_collection.clear()
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -106,6 +112,9 @@ def train():
     elif model_name == "illegal_immigration":
         ii_collection.train()
         ii_collection.wait()
+    elif model_name == "abortion_right":
+        ar_collection.train()
+        ar_collection.wait()
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -130,13 +139,17 @@ def predict():
             prediction = dp_collection.predict(text)
         elif model_name == "climate_change":
             prediction = cc_collection.predict(text)
-
         elif model_name == "illegal_immigration":
             prediction = ii_collection.predict(text)
+        elif model_name == "abortion_right":
+            prediction = ar_collection.predict(text)
 
         question = questions[model_name]
 
-    return render_template('index.html', wordform=form, prediction=prediction, question=question)
+    return render_template('index.html',
+                           wordform=form,
+                           prediction=prediction,
+                           question=question)
 
 
 @app.route("/collect/text", methods=["POST"])
@@ -157,6 +170,8 @@ def add_text():
         cc_collection.add_data(data)
     elif model_name == "illegal_immigration":
         ii_collection.add_data(data)
+    elif model_name == "abortion_right":
+        ar_collection.add_data(data)
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -176,7 +191,9 @@ def add_batch_text():
     elif model_name == "climate_change":
         read_csv("csv/climate.csv", cc_collection)
     elif model_name == "illegal_immigration":
-        read_csv("csv/immigration.csv", cc_collection)
+        read_csv("csv/immigration.csv", ii_collection)
+    elif model_name == "abortion":
+        read_csv("csv/abortion.csv", ar_collection)
     else:
         raise RuntimeError("No model named %s" % model_name)
 
