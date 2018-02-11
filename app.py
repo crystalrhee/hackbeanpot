@@ -24,6 +24,7 @@ questions = {"gun_control": "Should More Gun Control Laws Be Enacted?",
              "death_penalty": "Should the Death Penalty Be Allowed?",
              "climate_change": "Is Human Activity Primarily Responsible for Global Climate Change?"}
 
+
 @app.route('/collect')
 def collect_from_article():
     url = request.args.get("url")
@@ -77,6 +78,7 @@ def train():
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
     form = TextAreaForm(request.form)
+    prediction = None
 
     if request.method == 'POST':
         text = request.form['name']
@@ -87,9 +89,10 @@ def predict():
             prediction = dp_collection.predict(text)
         elif model_name == "climate_change":
             prediction = cc_collection.predict(text)
-        flash(str(prediction))
 
-    return render_template('index.html', wordform=form)
+        flash(questions[model_name])
+
+    return render_template('index.html', wordform=form, prediction=prediction)
 
 
 if __name__ == '__main__':

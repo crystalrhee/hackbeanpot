@@ -11,98 +11,120 @@
     <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
 
-    <link rel="icon" type="/static/image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="/static/css/sitewide.css" />
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/static/css/custom.css" />
+    <link rel="icon" type="/static/image/x-icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="/static/css/sitewide.css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/custom.css"/>
 </head>
 <body>
-    <div class="loader">
-        <div>
-            <img src="/static/img/icons/preloader.gif" />
-        </div>
+<div class="loader">
+    <div>
+        <img src="/static/img/icons/preloader.gif"/>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-5 left-wrapper">
-                <div class="banner-wrapper">
-                    <div class="logo">
-                        <h1>HackBeanPot</h1>
-                    </div>
-
-                    <h2>
-                        Image<br>Sentiment Analysis
-                        <span>Powered by Indico</span>
-                    </h2>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5 left-wrapper">
+            <div class="banner-wrapper">
+                <div class="logo">
+                    <h1>HackBeanPot</h1>
                 </div>
-            </div>
-            <div class="col-sm-7 right-wrapper">
-                <div class="main-wrapper">
-                    <div class="event-tab">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#link" aria-controls="link" role="tab" data-toggle="tab">Link</a></li>
-                            <li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab" data-toggle="tab">Analysis</a></li>
-                            <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
-                        </ul>
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="link">
-                                {% if wordform %}
-                                <form action="" method="post">
-                                    {{wordform.csrf}}
-                                    {{wordform.choices}}
-                                    <input type="text" id="linkInput" class="text-input" name="link">
-                                    <div class="text-input">
-                                        {{wordform.name.label}} {{wordform.name}}
-                                    </div>
-                                    <div class="input submit">
-                                        <input class="btn" type="submit" value="Submit"/>
-                                    </div>
-                                </form>
-                                {% with messages = get_flashed_messages(with_categories=true) %}
-                                {% if messages %}
-                                <ul>
-                                    {% for message in messages %}
-                                    <li>{{ message[1] }}</li>
-                                    {% endfor %}
-                                </ul>
-                                {% endif %}
-                                {% endwith %}
-                                {% endif %}
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="analysis">
-                                <div id="created"></div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="about">
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="text-right">
-                                    <a href="https://github.com/crystalrhee/hackbeanpot" class="btn">Code</a>
+                <h2>
+                    Image<br>Sentiment Analysis
+                    <span>Powered by Indico</span>
+                </h2>
+            </div>
+        </div>
+        <div class="col-sm-7 right-wrapper">
+            <div class="main-wrapper">
+                <div class="event-tab">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#link" aria-controls="link" role="tab"
+                                                                  data-toggle="tab">Link</a></li>
+                        <li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab"
+                                                   data-toggle="tab">Analysis</a></li>
+                        <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="link">
+                            {% if wordform %}
+                            <form action="" method="post">
+                                {{wordform.csrf}}
+                                {{wordform.choices}}
+                                <input type="text" id="linkInput" class="text-input" name="link">
+                                <div class="text-input">
+                                    {{wordform.name.label}} {{wordform.name}}
                                 </div>
+                                <div class="input submit">
+                                    <input class="btn" type="submit" value="Submit"/>
+                                </div>
+                            </form>
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message[1] }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% endwith %}
+                            {% endif %}
+
+                            {% if prediction %}
+                            pro: {{ prediction["pro"] }}, con: {{ prediction["con"] }}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="analysis">
+                            <div id="created"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="about">
+                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</h4>
+                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</h4>
+                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                mollit anim id est laborum.</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="text-right">
+                                <a href="https://github.com/crystalrhee/hackbeanpot" class="btn">Code</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 
-    
-    <script src="/static/js/libs/jquery-3.2.0.min.js"></script>
-    <script src="/static/js/libs/respond.min.js"></script>
-    <script src="/static/js/libs/bootstrap.min.js"></script>
-    <script src="/static/js/libs/allscript.js"></script>
-    <script src="/static/js/sitewide.js"></script>
+
+<script src="/static/js/libs/jquery-3.2.0.min.js"></script>
+<script src="/static/js/libs/respond.min.js"></script>
+<script src="/static/js/libs/bootstrap.min.js"></script>
+<script src="/static/js/libs/allscript.js"></script>
+<script src="/static/js/sitewide.js"></script>
 </body>
 
 </html>
