@@ -15,9 +15,6 @@ $(function() {
 
 $(function() {
 	$('#navAnalysis').click(function() {
-		var isDisabled = $('#navAnalysis').is(':disabled');
-		console.log(isDisabled);
-
 		pro = $('#resultPro')[0].innerHTML;
 		con = $('#resultCon')[0].innerHTML;
 		proPercent = (pro * 100).toFixed(2) + '%';
