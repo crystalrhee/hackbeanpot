@@ -87,9 +87,9 @@ def predict():
             prediction = dp_collection.predict(text)
         elif model_name == "climate_change":
             prediction = cc_collection.predict(text)
-        flash(str(prediction))
+        
 
-    return render_template('index.html', wordform=form)
+    return render_template('index.html', wordform=form, prediction=prediction)
 
 
 if __name__ == '__main__':

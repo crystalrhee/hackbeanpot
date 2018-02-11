@@ -9,16 +9,15 @@ html, body {
 /* common style's */
 a {
   color: #7447ae;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+
+  -webkit-transition: all ease-out 0.3s;
+  -moz-transition: all ease-out 0.3s;
+  -o-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
 }
 a:hover, a:focus, a:active {
-  text-decoration: none;
-  outline: none;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+    text-decoration: none;
+    outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* button style */
 .btn, .btn.disabled {
-    background: #f44336;
+    background: #f7d0cb;
     color: #ffffff;
     border: 0;
     border-radius: 20px;
@@ -35,12 +34,16 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px 30px;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
+
+    -webkit-transition: background-color ease-out 0.3s;
+    -moz-transition: background-color ease-out 0.3s;
+    -o-transition: background-color ease-out 0.3s;
+    transition: background-color ease-out 0.3s;
 }
 
 .btn:hover {
-    background: #e53935;
+    background: #cf9ea6;
     color: #ffffff;
-    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
@@ -52,33 +55,90 @@ label {
     font-weight: 400;
 }
 
-.form-group {
-    margin-bottom: 20px;
+form div {
+    margin: 20px;
 }
 
-.form-control {
-    height: 40px;
-    font-size: 18px;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0px;
-    padding: 6px 0px;
-    box-shadow: none;
-    font-weight: 100;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+.select-style {
+    color: rgba(0, 0, 0, 0.28);
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+    width: 80%;
 }
 
-.form-control:focus {
-    border-color: #666666;
-    outline: 0;
-    box-shadow: none;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+.select-style:after {
+    content: '\25BE';
+    height: 100%;
+    pointer-events: none;    
+    position: absolute;
+    right: 0%;
+    text-align: center;
+    top: 30%;
+    width: 10%;
+    z-index: 1;
+    -webkit-transition: color ease-out 0.3s;
+    -moz-transition: color ease-out 0.3s;
+    -o-transition: color ease-out 0.3s;
+    transition: color ease-out 0.3s;
 }
 
+.select-style:hover {
+    color: #000;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #f7d0cb;
+    border-radius: 0;
+    color: rgba(0, 0, 0, 0.28);
+    display: block;
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 5px;
+    outline: none;
+    width: 100%;
+    -webkit-transition: color ease-out 0.3s;
+    -moz-transition: color ease-out 0.3s;
+    -o-transition: color ease-out 0.3s;
+    transition: color ease-out 0.3s;
+}
+
+select:hover {
+    color: #000;
+}
+
+select option {
+    text-align: center;
+}
+
+label {
+    display: none;
+}
+
+textarea {
+    border-color: #f7d0cb;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.28);
+    height: 200px;
+    resize: none;
+    width: 80%;
+
+    -webkit-transition: all ease-out 0.3s;
+    -moz-transition: all ease-out 0.3s;
+    -o-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+}
+
+textarea:focus {
+    color: #000;
+    outline: none;
+    box-shadow: 0 0 6px rgba(197, 187, 175, 1);
+}
 
 /* loader */
 .loader{
@@ -168,7 +228,7 @@ label {
     padding: 40px;
 }
 
-.event-tab .nav-tabs {
+.tab .nav-tabs {
 	position: fixed;
 	top: 0;
 	left: 41.66666667%;
@@ -180,7 +240,7 @@ label {
     z-index: 99;
 }
 
-.event-tab .nav-tabs > li > a {
+.tab .nav-tabs > li > a {
     font-size: 18px;
     color: rgba(0, 0, 0, 0.28);
     margin-right: 30px;
@@ -190,11 +250,11 @@ label {
     -webkit-transition: all 0.5s;
 }
 
-.event-tab .nav-tabs > li.active > a,
-.event-tab .nav-tabs > li.active > a:hover, 
-.event-tab .nav-tabs > li.active > a:focus,
-.event-tab .nav-tabs > li > a:hover, 
-.event-tab .nav-tabs > li > a:focus {
+.tab .nav-tabs > li.active > a,
+.tab .nav-tabs > li.active > a:hover, 
+.tab .nav-tabs > li.active > a:focus,
+.tab .nav-tabs > li > a:hover, 
+.tab .nav-tabs > li > a:focus {
 	background: transparent;
     color: #000000;
     border: 1px solid transparent;
@@ -202,15 +262,63 @@ label {
     -webkit-transition: all 0.5s;
 }
 
-.event-tab .tab-content {
+.tab .tab-content {
     margin-top: 45px;
 }
 
-.event-tab .tab-content .tab-pane {
+.tab .tab-content .tab-pane {
     margin-bottom: 30px;
 }
 
-/* cart style */
+#analysis {
+    margin: 20% auto;
+    width: 80%;
+}
+
+#analysis ul li {
+    display: none;
+}
+
+dl
+{
+   width: 200px;
+   background: #fff;
+   border: 1px solid #000;
+   padding: 5px 15px;
+}
+
+dt, dd
+{
+   display: inline;
+}       
+
+.stacked-bar-graph {
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+.stacked-bar-graph span {
+    display: inline-block;
+    height:100%;
+    box-sizing: border-box;
+    float: left;
+    padding: 10px;
+}
+
+#bar-1 {
+    background: #c9ba93;
+    color: #fff;
+}
+
+#bar-2 {
+    background: #f7d0cb;
+    color: #000;
+}
+
+
+
+/* footer style */
 .footer {
     padding: 20px 40px;
     background: #fff;
@@ -258,7 +366,7 @@ label {
         padding: 20px;
     }
 
-    .event-tab .nav-tabs {
+    .tab .nav-tabs {
         margin-bottom: 10px;
         position: relative;
         top: 0;
@@ -267,7 +375,7 @@ label {
         width: 100%;
     }
 
-    .event-tab .tab-content {
+    .tab .tab-content {
         margin-top: 20px;
     }
 
@@ -281,24 +389,26 @@ label {
         width: 100%;
         z-index: 99;
     }
-
 }
 
 /* media query for Mobile */
 @media (max-width: 480px) {
-
-    .modal.left .modal-dialog, .modal.right .modal-dialog {
-        width: 100%;
-    }
-
-    .event-tab .nav-tabs > li > a {
+    .tab .nav-tabs > li > a {
         font-size: 16px;
         margin-right: 0;
         padding: 2px 0px;
     }
 
-    .event-tab .nav-tabs > li {
+    .tab .nav-tabs > li {
         width: 100%;
+    }
+
+    .select-style:after {
+        right: 3%;
+    }
+
+    textarea {
+        height: 100px;
     }
 
     .footer p {
