@@ -134,7 +134,7 @@ textarea {
     transition: all ease-out 0.3s;
 }
 
-textarea:focus {
+textarea:focus, textarea:hover {
     color: #000;
     outline: none;
     box-shadow: 0 0 6px rgba(197, 187, 175, 1);
@@ -272,6 +272,7 @@ textarea:focus {
 
 #analysis {
     margin: 20% auto;
+    position: relative;
     width: 80%;
 }
 
@@ -279,18 +280,39 @@ textarea:focus {
     display: none;
 }
 
-dl
-{
-   width: 200px;
-   background: #fff;
-   border: 1px solid #000;
-   padding: 5px 15px;
+#labels {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    width: 120px;
 }
 
-dt, dd
-{
-   display: inline;
-}       
+#labels ul {
+    display: flex;
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+    font-size: 14px;
+    color: #333333;
+}
+
+#labels ul li {
+    display: flex;
+    margin: 0px 10px;
+    padding: 0 0 8px 0;
+}
+
+#labels ul li span{
+    display: block;
+    float: left;
+    width:8px;
+    height: 8px;
+    margin: 5px 5px 0 0 ;
+    background: #FFFFFF;
+}
+
+#labels ul :nth-child(1) span{ background: #c9ba93; }
+#labels ul :nth-child(2) span{ background: #f7d0cb; }
 
 .stacked-bar-graph {
     display: flex;
