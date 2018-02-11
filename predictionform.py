@@ -12,4 +12,5 @@ class PredictionForm(Form):
     name = TextAreaField('Text', validators=[validators.required()])
     choices = SelectField('Model', choices=[("gun_control", "Gun Control"),
                                             ("death_penalty", "Death Penalty"),
-                                            ("climate_change", "Climate Change")])
+                                            ("climate_change", "Climate Change"),
+                                            ("illegal_immigration", "Illegal Immigration")])

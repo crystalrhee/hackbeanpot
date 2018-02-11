@@ -16,10 +16,12 @@ app.config.from_object('config')
 gc_collection = Collection("gun_control", domain="standard")
 dp_collection = Collection("death_penalty", domain="standard")
 cc_collection = Collection("climate_change", domain="standard")
+ii_collection = Collection("illegal_immigration", domain="standard")
 questions = {
     "gun_control": "Should More Gun Control Laws Be Enacted?",
     "death_penalty": "Should the Death Penalty Be Allowed?",
-    "climate_change": "Is Human Activity Primarily Responsible for Global Climate Change?"
+    "climate_change": "Is Human Activity Primarily Responsible for Global Climate Change?",
+    "illegal_immigration": "Should the Government Allow Immigrants Who Are Here Illegally to Become US Citizens?"
 }
 
 
@@ -60,6 +62,8 @@ def _add_articles_to_collection(soup, class_name, label, model_name):
         dp_collection.add_data(articles)
     elif model_name == "climate_change":
         cc_collection.add_data(articles)
+    elif model_name == "illegal_immigration":
+        ii_collection.add_data(articles)
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -76,6 +80,8 @@ def clear_collection():
         dp_collection.clear()
     elif model_name == "climate_change":
         cc_collection.clear()
+    elif model_name == "illegal_immigration":
+        ii_collection.clear()
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -97,6 +103,9 @@ def train():
     elif model_name == "climate_change":
         cc_collection.train()
         cc_collection.wait()
+    elif model_name == "illegal_immigration":
+        ii_collection.train()
+        ii_collection.wait()
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -120,6 +129,8 @@ def predict():
             prediction = dp_collection.predict(text)
         elif model_name == "climate_change":
             prediction = cc_collection.predict(text)
+        elif model_name == "illegal_immigration":
+            prediction = ii_collection.predict(text)
 
         flash(questions[model_name])
 
@@ -142,6 +153,8 @@ def add_text():
         dp_collection.add_data(data)
     elif model_name == "climate_change":
         cc_collection.add_data(data)
+    elif model_name == "illegal_immigration":
+        ii_collection.add_data(data)
     else:
         raise RuntimeError("No model named %s" % model_name)
 
@@ -160,6 +173,8 @@ def add_batch_text():
         read_csv("csv/death.csv", dp_collection)
     elif model_name == "climate_change":
         read_csv("csv/climate.csv", cc_collection)
+    elif model_name == "illegal_immigration":
+        read_csv("csv/immigration.csv", cc_collection)
     else:
         raise RuntimeError("No model named %s" % model_name)
 
