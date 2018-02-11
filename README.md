@@ -27,6 +27,25 @@ app.config["SECRET_KEY"] = <your key>
 4. cd into the project repo and run `python app.py`  
 5. In the browser, open http://localhost:5000/predict  
 
+## How to use:
+1. Select topic from dropdown menu
+2. Enter text passage to predict in input, then select "Submit" button
+3. Once page has finished reloading, open "Analyze" tab to view prediction
+
+## Add additional information to train models:
+POST /collect/text  
+Request body format:  
+```
+{
+  "text": string,
+  "label": string,
+  "tag": string
+}
+```
+Text: passage of text to train model on  
+Label: name of model to train, eg: `gun_control`, `climate_change`  
+Tag: `pro` or `con`
+
 ## Screenshots:
 ![input](screenshots/input.png)  
 ![output](screenshots/output.png)
