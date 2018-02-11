@@ -1,17 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>[page title goes here]</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Reusable Form Demo</title>
+    </head>
+    <body>
+    <h1>{{title}}</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message[1] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% if form %}
+        <form action="" method="post">
+            {{ form.csrf }}
 
-    <!-- include partials/meta.html -->
-</head>
-<body class="home">
-<!-- include partials/header.html -->
+            <div class="input text">
+                {{ form.name.label }} {{ form.name }}
+            </div>
 
-{{status}}
+            <div class="input submit">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+        {% endif %}
 
+    <a href="/train">Train!</a>
+    <a href="/predict">Predict!</a>
+    <a href="/clear">Clear!</a>
 
-<!-- include partials/footer.html -->
-<!-- include partials/scripts.html -->
-</body>
+    {% if wordform %}
+    <form action="" method="post">
+        {{wordform.csrf}}
+        <div class="input text">
+            {{wordform.name.label}} {{wordform.name}}
+        </div>
+        <div class="input submit">
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+    </body>
+    {% endif %}
 </html>
