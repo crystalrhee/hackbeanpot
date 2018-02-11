@@ -95,5 +95,22 @@ def predict():
     return render_template('index.html', wordform=form, prediction=prediction)
 
 
+@app.route("/collect/text", methods=["POST"])
+def add_text():
+    model_name = request.get_json()["model_name"]
+    text = request.get_json()["text"]
+    side = request.get_json()["side"]
+    data = [(text, side)]
+
+    if model_name == "gun_control":
+        gc_collection.add_data(data)
+    elif model_name == "death_penalty":
+        dp_collection.add_data(data)
+    elif model_name == "climate_change":
+        cc_collection.add_data(data)
+
+    return "Text successfully added"
+
+
 if __name__ == '__main__':
     app.run(debug=True)
