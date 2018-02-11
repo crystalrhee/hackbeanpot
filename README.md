@@ -1,13 +1,21 @@
-#hackbeanpot
+# Hackbeanpot 2k18 Project
 
-## Team
-
-**Developers**:
-	* Crystal Rhee
-	* Olivia Wan
-	* Sarah Zhang
+## About
 
 We approached this hackathon project by considering how the indico.io API could be used to compare opposing viewpoints on various divisive topics. Ultimately, we decided to use indico.io’s “Custom Collections” feature, which allowed us to train a model on for/against arguments from procon.org, as well as various other sources. This let us input text to predict whether it was for or against a given argument.
+
+**Tech stack:**
+* Python
+* Flask
+* Indico.io API
+* HTML/CSS
+* Sass, jQuery
+
+## Team
+**Developers**:
+* [Crystal Rhee](https://github.com/crystalrhee)
+* [Olivia Wan](https://github.com/omwan)
+* [Sarah Zhang](https://github.com/sazhang)
 
 ## Starting a local server:
 cd into the desired folder and run `python app.py`
