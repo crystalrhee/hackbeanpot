@@ -1,47 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>
-        <title>Reusable Form Demo</title>
-    </head>
-    <body>
-    <h1>{{title}}</h1>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message[1] }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-        {% if form %}
-        <form action="" method="post">
-            {{ form.csrf }}
+<head>
+    <title>Reusable Form Demo</title>
+</head>
+<body>
+<h1>title</h1>
 
-            <div class="input text">
-                {{ form.name.label }} {{ form.name }}
-            </div>
-
-            <div class="input submit">
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
-        {% endif %}
-
-    <a href="/train">Train!</a>
-    <a href="/predict">Predict!</a>
-    <a href="/clear">Clear!</a>
-
-    {% if wordform %}
-    <form action="" method="post">
-        {{wordform.csrf}}
-        <div class="input text">
-            {{wordform.name.label}} {{wordform.name}}
-        </div>
-        <div class="input submit">
-            <input type="submit" value="Submit" />
-        </div>
-    </form>
-    </body>
-    {% endif %}
+{% if wordform %}
+<form action="" method="post">
+    {{wordform.csrf}}
+    <div class="input text">
+        {{wordform.name.label}} {{wordform.name}}
+    </div>
+    <div class="input submit">
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message[1] }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+</body>
+{% endif %}
 </html>
