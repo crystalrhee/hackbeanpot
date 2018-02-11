@@ -138,6 +138,10 @@ textarea {
     transition: all ease-out 0.3s;
 }
 
+textarea::placeholder {
+  color: #ccc;
+}
+
 textarea:focus, textarea:hover {
     color: #000;
     outline: none;

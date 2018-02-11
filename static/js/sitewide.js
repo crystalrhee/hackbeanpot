@@ -1,16 +1,10 @@
 $(window).on("load",function(){
 	$(".loader").fadeOut("slow");;
+	$('.text-input textarea').attr('placeholder','Select a category and add text here to analyze.');
 });
 
 $(function() {
 	$('.text-input textarea').prop('required',true);
-});
-
-$(function() {
-	$('.input.submit input').click(function() {
-		e.preventDefault();
-		$location.hash() = '#analysis'
-	});
 });
 
 $(function() {
