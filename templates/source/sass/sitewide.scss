@@ -24,7 +24,19 @@ p {
 	}
 }
 
+form {
+	text-align: center;
 
+	input {
+		border:none;
+		border-bottom: 1px solid #ccc;
+		outline: none;
+
+		&:focus, &:hover {
+			outline: none;
+		}
+	}
+}
 
 /*
 Include any other files split out by section here
