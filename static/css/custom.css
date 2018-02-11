@@ -362,6 +362,11 @@ textarea:focus, textarea:hover {
     filter: brightness(115%);
 }
 
+#about h4 span {
+    color: #ccc;
+    font-size: small;
+}
+
 /* footer style */
 .footer {
     padding: 20px 40px;
