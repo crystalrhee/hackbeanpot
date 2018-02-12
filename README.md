@@ -24,6 +24,7 @@ We approached this hackathon project by considering how the indico.io API could 
 app.config["SECRET_KEY"] = <your key>
 ```
 3. Get an indico.io API key and add it to your home directory in an .indicorc file as explained in the [indico.io docs](https://indico.io/docs#config_file).  
+4. Install dependencies with `pip install -r requirements.txt`
 4. cd into the project repo and run `python app.py`  
 5. In the browser, open http://localhost:5000/predict  
 
