@@ -47,6 +47,3 @@ Text: passage of text to train model on
 Label: name of model to train, eg: `gun_control`, `climate_change`  
 Tag: `pro` or `con`
 
-## Screenshots:
-![input](screenshots/input.png)  
-![output](screenshots/output.png)
